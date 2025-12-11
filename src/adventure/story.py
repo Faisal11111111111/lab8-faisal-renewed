@@ -29,10 +29,11 @@ if __name__ == "__main__":
 
     while True:
         choice = Prompt.ask(
-            "[yellow]Which direction do you choose?[/yellow]",
-            choices=["left", "right", "exit"],
-            default="exit"
-        ).strip().lower()
+        "[bold yellow]Which direction do you choose?[/bold yellow]",
+        choices=["left", "right", "exit"],
+        default="exit"
+    ).strip().lower()
+
 
         if choice == "exit":
             print("[bold red]You chose to exit the forest. Goodbye.[/bold red]")
