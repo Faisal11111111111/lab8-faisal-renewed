@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
 
         if choice == "exit":
-            print("[bold red]You chose to exit the forest. Goodbye.[/bold red]")
+            print("\n[bold green]Thanks for playing! You leave the forest safely. Goodbye 👋[/bold green]\n")
             break
 
         # Step returns plain text → tests still pass
