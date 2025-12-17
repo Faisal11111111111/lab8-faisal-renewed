@@ -1,7 +1,5 @@
 from adventure.utils import read_events_from_file
 import random
-from rich import print
-from rich.prompt import Prompt
 
 default_message = "You stand still, unsure what to do. The forest swallows you."
 
@@ -22,25 +20,13 @@ def right_path(event):
     return "You walk right. " + event
 
 if __name__ == "__main__":
-    events = read_events_from_file("events.txt")
+    events = read_events_from_file('events.txt')
 
-    print("[bold cyan]You wake up in a dark forest.[/bold cyan]")
-    print("[green]You can go left or right.[/green]")
-
+    print("You wake up in a dark forest. You can go left or right.")
     while True:
-        choice = Prompt.ask(
-        "[bold yellow]Which direction do you choose?[/bold yellow]",
-        choices=["left", "right", "exit"],
-        default="exit"
-    ).strip().lower()
-
-
-        if choice == "exit":
-            print("[bold red]You chose to exit the forest. Goodbye.[/bold red]")
+        choice = input("Which direction do you choose? (left/right/exit): ")
+        choice = choice.strip().lower()
+        if choice == 'exit':
             break
-
-        # Step returns plain text → tests still pass
-        result = step(choice, events)
-
-        # We only format the display, NOT the returned string
-        print(f"[magenta]{result}[/magenta]")
+        
+        print(step(choice, events))
